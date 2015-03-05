@@ -1,7 +1,13 @@
 <h1>Latest Pastries hot out of the oven!</h1>
+	
+	<section class="pastries">
+	<!-- @pastries.each do |pastry| .... end is called a loop -->
+		<% @pastries.each do |pastry| %>
 
-<% @pastries.each do |pastry| %>
-	<p><%= pastry[:name] %></p>
-	<p><%= pastry[:price_in_pence] %></p>
+			<div class="pastry">
+				<p><%= pastry[:name] %></p>
+				<p><%= pastry[:price_in_pence] %></p>
+			</div>
 
-<% end %>
+		<% end %>
+	</section>
