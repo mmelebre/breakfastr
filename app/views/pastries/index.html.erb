@@ -5,7 +5,7 @@
 		<% @pastries.each do |pastry| %>
 
 			<div class="pastry">
-				<p><%= pastry[:name] %></p>
+				<p><%= link_to pastry[:name], pastry_path(pastry) %></p>
 				<p><%= pastry[:price_in_pence] %></p>
 			</div>
 
