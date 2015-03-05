@@ -6,7 +6,10 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
-  		flash[:success] = "User created"
+  		flash[:success] = "Thanks for signing up"
+      # log them in here
+      reset_session
+      session[:user_id] = @user.id
   		redirect_to root_path
   	else
   		flash[:error] = "Try again"

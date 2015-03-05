@@ -1,0 +1,10 @@
+<h1>Log In</h1>
+<%= simple_form_for :session, url: session_path, method: :post do |f| %>
+<!-- method: :post refers to the Verb column on the rake routes table under terminal -->
+	<%= f.input :username %>
+	<%= f.input :password %>
+
+	<%= f.button :submit %>
+
+
+<% end %>

@@ -1,4 +1,6 @@
 class PastriesController < ApplicationController
+  before_action :require_user, except: [:index, :show]
+  
   def index
   	@pastries = Pastry.all
   end
