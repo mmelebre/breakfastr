@@ -2,8 +2,13 @@ class PastriesController < ApplicationController
   before_action :require_user, except: [:index, :show]
   
   def index
-  	@pastries = Pastry.all
-  end
+    if params[:user_id].present?
+        @user = User.find(params[:user_id])
+        @pastries = @user.pastries
+    else    
+        @pastries = Pastry.all
+    end
+    end
 
   def show
   	@pastry = Pastry.find(params[:id])
@@ -15,7 +20,8 @@ class PastriesController < ApplicationController
   end
 
   def create
-    @pastry = Pastry.new(pastry_params)
+    
+    @pastry = current_user.pastries.new(pastry_params)
     if @pastry.save 
         flash[:success] = "Pastry added!"
         redirect_to root_path
@@ -43,7 +49,7 @@ class PastriesController < ApplicationController
   def destroy
     @pastry = Pastry.find(params[:id])
     @pastry.destroy
-    flash[:success] = "You destroyed a perfectly good pastry!!"
+    flash[:success] = "You destroyed '#{@pastry.name}' a perfectly good pastry!!"
     redirect_to root_path
       
   end  

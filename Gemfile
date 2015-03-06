@@ -50,6 +50,7 @@ group :production do
 end	
 
 gem 'simple_form'
-
 gem 'paperclip'
+gem 'table_print'
+gem 'stripe'
 

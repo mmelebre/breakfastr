@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150305170258) do
+ActiveRecord::Schema.define(version: 20150306154336) do
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "stripe_token"
+    t.integer  "user_id"
+    t.integer  "pastry_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "pastries", force: :cascade do |t|
     t.string   "name"

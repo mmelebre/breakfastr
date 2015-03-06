@@ -6,7 +6,7 @@
 
 			<div class="pastry">
 				<p><%= link_to pastry[:name], pastry_path(pastry) %></p>
-				<p><%= pastry[:price_in_pence] %></p>
+				<p><%= number_to_currency(pastry.price_in_pence.to_f / 100, unit: "£") %></p>
 			</div>
 
 		<% end %>
